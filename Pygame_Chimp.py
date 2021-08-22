@@ -1,5 +1,3 @@
-# Pygame-Chim
-
 import pygame
 from random import*
 
@@ -64,6 +62,11 @@ def display_start_screen():
     # 흰색으로 동그라미를 그리는데 중심좌표는 start_button의 중심좌표를 따라가고,
     # 반지름은 60, 선 두께는 5
 
+    msg = game_font.render(f"{curr_level}",True,WHITE)
+    msg_rect = msg.get_rect(center=start_button.center)
+    
+    screen.blit(msg,msg_rect)
+    
 # 게임 화면 보여주기
 def display_game_screen():
     global hidden, start_ticks
@@ -148,6 +151,7 @@ start_ticks = None # 시간 계산 (현재 시간 정보를 저장)
 
 # 게임 시작 여부
 start = False
+
 # 숫자 숨김 여부 (사용자가 1을 클릭했거나, 보여주는 시간 초과헀을 때)
 hidden = False
 
